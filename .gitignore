@@ -1,0 +1,14 @@
+# IDE files
+/.idea
+/*.config
+/*.creator
+/*.files
+/*.includes
+/*.cflags
+/*.creator.*
+/*.cxxflags
+Makefile
+
+# python files
+__pycache__/
+*.py[cod]

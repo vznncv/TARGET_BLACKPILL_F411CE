@@ -1,0 +1,5 @@
+# ignore examples
+examples/*
+# ignore documentation files
+docs/*
+
