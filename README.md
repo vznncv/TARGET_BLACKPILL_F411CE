@@ -55,6 +55,8 @@ This repository provides Mbed OS 6 support for a board with [STM32F411CEU6](http
 | Mbed OS | status |
 |---|---|
 | 6.5 | Compiles and runs ok |
+| 6.6 | Compiles and runs ok, but you need to press reset button (NRST) during firmware uploading. This bug is caused by the pull request [#13777](https://github.com/ARMmbed/mbed-os/pull/13777), but fixed in the [#14032](https://github.com/ARMmbed/mbed-os/pull/14032). |
+| 6.7 | Compiles and runs ok |
 
 ## Project configuration
 
