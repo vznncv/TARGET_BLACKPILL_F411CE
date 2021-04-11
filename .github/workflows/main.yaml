@@ -1,0 +1,32 @@
+on:
+  push:
+    tags: "v[0-9]+.[0-9]+.[0-9]+**"
+    branches: "*"
+jobs:
+  compliation-test:
+    strategy:
+      matrix:
+        include:
+          - mbed_os_version: "mbed-os-6.5.0"
+          - mbed_os_version: "mbed-os-6.6.0"
+          - mbed_os_version: "mbed-os-6.7.0"
+          - mbed_os_version: "mbed-os-6.8.0"
+          - mbed_os_version: "mbed-os-6.9.0"
+    runs-on: ubuntu-latest
+    container: "mbedos/mbed-os-env"
+    steps:
+      # build demo project
+      - name: Add libraries to project
+        run: |
+          mbed-cli new --create-only .
+          mbed-cli add "${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}.git#${GITHUB_SHA}"
+          mbed-cli add "https://github.com/ARMmbed/mbed-os.git#${{ matrix.mbed_os_version }}"
+      - name: Configure project
+        run: |
+          cp "${GITHUB_REPOSITORY##*/}/custom_targets.json" ./
+          cp "${GITHUB_REPOSITORY##*/}/examples/example_1_blink.cpp" ./
+          (cd mbed-os && mbed releases)
+          mbed conf TARGET BLACKPILL_F411CE
+      # compile project
+      - name: Compile project
+        run: mbed compile --toolchain GCC_ARM --profile debug
