@@ -4,7 +4,7 @@
 #include "mbed.h"
 
 DigitalOut user_led(LED1, 1);
-InterruptIn user_button(PA_0, PullUp);
+InterruptIn user_button(BUTTON1, PullUp);
 
 void user_button_fall_callback()
 {
@@ -19,8 +19,9 @@ void user_button_rise_callback()
         ThisThread::sleep_for(50ms);
     }
 }
-auto user_button_rise_event = mbed_event_queue() -> make_user_allocated_event(user_button_rise_callback);
-auto user_button_fall_event = mbed_event_queue() -> make_user_allocated_event(user_button_fall_callback);
+
+auto user_button_rise_event = mbed_event_queue()->make_user_allocated_event(user_button_rise_callback);
+auto user_button_fall_event = mbed_event_queue()->make_user_allocated_event(user_button_fall_callback);
 
 int main()
 {

@@ -49,6 +49,7 @@ This repository provides Mbed OS 6 support for a board with [STM32F411CEU6](http
 | STDIO_UART_TX | PA_2 |
 | STDIO_UART_RX | PA_3 |
 | led pin (LED1 alias) | PC_13 |
+| user button pin (BUTTON1 alias) | PA_0 |
 
 ### Mbed OS version support
 
@@ -59,6 +60,7 @@ This repository provides Mbed OS 6 support for a board with [STM32F411CEU6](http
 | 6.7 | Compiles and runs ok |
 | 6.8 | Compiles and runs ok |
 | 6.9 | Compiles and runs ok |
+| 6.10 | Compiles and runs ok |
 
 ## Project configuration
 

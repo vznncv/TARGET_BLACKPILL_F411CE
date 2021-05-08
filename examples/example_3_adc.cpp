@@ -37,7 +37,9 @@ float read_mcu_temperature()
     temp_adc_lsb = ((int32_t)temp_adc_lsb * v_ref_mv) / TEMPSENSOR_CAL_VREFANALOG;
 
     // convert lsb temperature value to degree Celsius
-    temp_value = (float)((temp_adc_lsb - (int32_t)*TEMPSENSOR_CAL1_ADDR) * (TEMPSENSOR_CAL2_TEMP - TEMPSENSOR_CAL1_TEMP)) / (float)(*TEMPSENSOR_CAL2_ADDR - *TEMPSENSOR_CAL1_ADDR) + TEMPSENSOR_CAL1_TEMP;
+    temp_value =
+            (float)((temp_adc_lsb - (int32_t)*TEMPSENSOR_CAL1_ADDR) * (TEMPSENSOR_CAL2_TEMP - TEMPSENSOR_CAL1_TEMP)) /
+            (float)(*TEMPSENSOR_CAL2_ADDR - *TEMPSENSOR_CAL1_ADDR) + TEMPSENSOR_CAL1_TEMP;
 
     return temp_value;
 }

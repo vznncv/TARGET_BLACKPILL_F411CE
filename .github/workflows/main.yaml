@@ -12,6 +12,7 @@ jobs:
           - mbed_os_version: "mbed-os-6.7.0"
           - mbed_os_version: "mbed-os-6.8.0"
           - mbed_os_version: "mbed-os-6.9.0"
+          - mbed_os_version: "mbed-os-6.10.0"
     runs-on: ubuntu-latest
     container: "mbedos/mbed-os-env"
     steps:
