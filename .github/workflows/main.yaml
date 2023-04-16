@@ -11,10 +11,9 @@ jobs:
     strategy:
       matrix:
         include:
-          - mbed_os_version: "mbed-os-6.12.0"
-          - mbed_os_version: "mbed-os-6.13.0"
+          - mbed_os_version: "mbed-os-6.17.0"
     runs-on: ubuntu-latest
-    container: mbedos/mbed-os-env
+    container: ghcr.io/armmbed/mbed-os-env
     steps:
 
       - name: Prepare environment
@@ -52,10 +51,9 @@ jobs:
     strategy:
       matrix:
         include:
-          - mbed_os_version: "mbed-os-6.12.0"
-          - mbed_os_version: "mbed-os-6.13.0"
+          - mbed_os_version: "mbed-os-6.17.0"
     runs-on: ubuntu-latest
-    container: mbedos/mbed-os-env
+    container: ghcr.io/armmbed/mbed-os-env
     steps:
 
       - name: Prepare environment

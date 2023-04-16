@@ -79,15 +79,16 @@ mbed-cli or mbed-tools:
 - mbed tools (Mbed CLI 2)
 
     1. Go to project root directory.
-    2. Copy project to root. For example: `git clone https://github.com/vznncv/TARGET_BLACKPILL_F411CE.git`
-    3. Add this project to your `CMakeLists.txt`. For example, add the following lines:
+    2. Create file `TARGET_BLACKPILL_F411CE.lib` with `https://github.com/vznncv/TARGET_BLACKPILL_F411CE/` line.
+    3. Run `mbed-tools deploy` to download library.
+    4. Add the following lines to `CMakeLists.txt`:
 
        ```
        add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/TARGET_BLACKPILL_F411CE)
        target_link_libraries(${APP_TARGET} mbed-blackpill-f411ce)
        ```
 
-    4. Configure CMake project with command:
+    5. Configure CMake project with command:
        `mbed-tools configure --toolchain GCC_ARM --mbed-target BLACKPILL_F411CE --custom-targets-json TARGET_BLACKPILL_F411CE/custom_targets.json`
 
 note: currently only GCC ARM toolchain is supported.
